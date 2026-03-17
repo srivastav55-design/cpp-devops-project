@@ -12,36 +12,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build C++ code
-      run: |
-        g++ main.cpp -o app
-        ./app
-
-    - name: Build Docker image
-      run: |
-        docker build -t cpp-devops-app .name: C++ CI Pipeline
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y cmake
+      run: sudo apt-get update && sudo apt-get install -y cmake g++
 
-    - name: Build project
+    - name: Build using CMake
       run: |
         mkdir build
         cd build
         cmake ..
         make
 
-    - name: Run executable
+    - name: Run app
       run: ./build/myapp
+
+    - name: Build Docker image
+      run: docker build -t cpp-devops-app .
