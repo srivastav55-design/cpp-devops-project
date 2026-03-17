@@ -1,0 +1,3 @@
+/Users/srivatsavgowda/cpp-devops-project/build/CMakeFiles/myapp.dir
+/Users/srivatsavgowda/cpp-devops-project/build/CMakeFiles/edit_cache.dir
+/Users/srivatsavgowda/cpp-devops-project/build/CMakeFiles/rebuild_cache.dir

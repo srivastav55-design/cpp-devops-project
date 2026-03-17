@@ -1,0 +1,8 @@
+FROM gcc:latest
+
+WORKDIR /app
+COPY . .
+
+RUN apt-get update && apt-get install -y cmake
+RUN rm -rf build && mkdir build && cd build && cmake .. && make
+CMD ["./build/myapp"]
